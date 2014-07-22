@@ -47,9 +47,36 @@
 
     <h3>CSS Linking</h3>
 
-    <p>Useing the following for embedded CSS style: &ltstyle type="text/css"&gt   'copy CSS file content here' &lt/style  &gt</p>
+    <p>Useing the following for embedded CSS style: &ltstyle type="text/css"&gt   'copy CSS file content here' &lt/style  &gt. BTW, embedded CSS are put into the head section. And, just put a space in-between elements, to present the path to the final element, so that you won't have confusions, even later you added something when you can't remember what was inside the CSS file.</p>
 
-    <p>Using the following for linking to external CSS file: &ltlink rel="stylesheet" type="text/css" href="style/base.css" media="all" /&gt</p>
+    <p>Using the following for linking to external CSS file: &ltlink rel="stylesheet" type="text/css" href="style/base.css" media="all" /&gt. </p>
+
+    <p>You can link multiple external CSS files, such as one for style, another for fonds, third just for contacts, etc.; using same copies of link statement (but different CSS file names)</p>
+
+    <p>You can not only implement background for the Body section, but also for each and every element you could specify, if you want. Using 'div' is a common way create an element in HTML, so that you can reference to it to do something else, such as apply CSS styles to that section.</p>
+
+    <p>Using embedded style tab, you can use '@import url(styles/base.css);" statement to add stylesheet. You can also add multiple statements, such as '@import url(styles/secondary.css);'. You could even add embedded CSS stylesheet in the next line etc.</p>
+
+    <p>It is personal choice which method you use. Normally people use 'link' statement for external CSS files.</p>
+
+    <h3>Selectors</h3>
+
+    <p>ID selector is a commonly used method to mark a section. ID got to be unique. In CSS file, just add "#" in front of ID, it is easily refer to that ID. BTW, you can combine DOM element name with the ID inside CSS file for selector. The only issue is that there should be no space between DOM element and '#'ID. BTW, selector is case sensitive as well.</p>
+
+    <p>Class selectors are use '.' plus class name to mark section or sections that has common CSS properties. You could also add element name in front of '.' without space, as selector to specify the class inside that element only. </p>
+
+    <p>Don't 'over' class: If you already added class to 'ul' or 'ol' tag, you don't need to add that class into each and every 'li' tag underneath.  It is much cleaner to read and refer to. Unless you are going to put in different class or ID into the 'li' tag. </p>
+
+    <p>You could use 'class="first urgent"' to set both class 'first' and class 'urgent' into the same tag/element, and then use different rules about each class. The final result would be combine both together. </p>
+
+    <p>Group selectors can combine individual selector together for the same common properties. Such as "h1, h2, h3, h4, h5, h6, div#content p, title {text-transform: uppercase;}". This was the one that tutor told me to do when using ',' to add two selectors together for JavaScript code - but he didn't mention 'group selector' as a method. </p>
+
+    <p>Three sources of style: Author styles, User(reader) styles, User Agent styles(browser style). User Agent style is the function one, that is auto applied. User style is on top of browser style, such as 'links should always underlined, and no one should change it'. BTW, User Style Sheet is very rare to be seen, because most people don't know it exists.</p>
+
+    <p>If you has the following: "h1 {background: green;}", but h1 section didn't turn green. You can try to add "!important" as following: "h1 {background: green !important;}". It would force it to green. Then you should do troubleshooting, to find out where it was defined as non-green, and then correct the issue and take that  "!important"  out. </p>
+
+
+
 
     <script type="text/javascript" src="CSSStudyNotes.js"></script>
 </body>
