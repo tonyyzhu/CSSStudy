@@ -71,9 +71,28 @@
 
     <p>Group selectors can combine individual selector together for the same common properties. Such as "h1, h2, h3, h4, h5, h6, div#content p, title {text-transform: uppercase;}". This was the one that tutor told me to do when using ',' to add two selectors together for JavaScript code - but he didn't mention 'group selector' as a method. </p>
 
-    <p>Three sources of style: Author styles, User(reader) styles, User Agent styles(browser style). User Agent style is the function one, that is auto applied. User style is on top of browser style, such as 'links should always underlined, and no one should change it'. BTW, User Style Sheet is very rare to be seen, because most people don't know it exists.</p>
+    <p>Three sources of style: 
+    	<ol>
+    		<li>Author styles (web site style), which is what the web page coder specified.<br /><br /></li>
+    		<li>User Agent styles (browser style), default settings of the user's browser. In Firefox, it is under menu --> View --> Page Style --> 'basic page style' (default). (Another choice is 'no style'.)<br /><br /></li>
+    		<li>User(reader) styles: User style is on top of browser style, such as 'links should always underlined, and no one should change it'. BTW, User Style Sheet is very rare to be seen, because most people don't know it exists. A common usage is that colour-blind people will define their own user style, that will turn everything into black/white format. <br /><br />
+
+    		Old version of browsers (before 2006) were using 'html.css' and other .css files in 'resources' folder for User Style. But the modern ones no longer has these .css files installed as part of the package. It has to be done through the settings from menus and options etc. <br /><br />
+
+    		At this Windows Vista machine, on Chrome, I disabled Adobe Flash and others in Chrome://Plugin, and in Chrome://settings I disabled Javascript, download image, disable cookie, and other things and privacy that is not necessary. Then it is really fast to load those Chinese Noval webpages without those annoying pop-ups, ads, flashing video game animations, and other porny sick pictures. All those things will put the laptop into freezing if open more than 5 tabs at same time (as Core-2 and 1GB RAM Vista PC, that memory usage could be over 93% to 100%). Now it is OK to open more than 10 tabs at same time, and max RAM usage is 73% and CPU is less than 20%. Well, at least recent learning enabled me to do something right here. <br /><br /></li>
+    		<li>User style overrides User Agent style, which will override Author style. This is why it is called Cascading Style Sheet (CSS).</li>
+    	</ol>
+     </p>
 
     <p>If you has the following: "h1 {background: green;}", but h1 section didn't turn green. You can try to add "!important" as following: "h1 {background: green !important;}". It would force it to green. Then you should do troubleshooting, to find out where it was defined as non-green, and then correct the issue and take that  "!important"  out. </p>
+
+    <p>On the other hand, User Style will typically use "!important" in each declaration, so that it would override all other styles; such as in above color-blind case.</p>
+
+    <p>Inheritance: In DOM tree, child elements will inherite those declaritions from parent element, in a common sense way. Borders will not be inherited, but colour and font styles will be. However, if there is a specific style/declaration for a specific element in the child elements, that style will win the competition against the inheritance from parent element. In other ways, directly assigned declaration will win the conflict, as a rule. Even "!important" declared rule won't win in the inheritance, if not in User Style.</p>
+
+    <h3>Layout</h3>
+
+    <p>Border can be placed outside of any element. Padding is between border and the content. Margin is similar to padding, but outside of border. A typical rule would look like this: p {margin: 1em; border: 1px solid #000; padding: 1em;} </p>
 
 
 
