@@ -1,2 +1,2 @@
-CSSStudy
+CSS Study
 ========
