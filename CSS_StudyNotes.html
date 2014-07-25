@@ -11,7 +11,7 @@
 
     <h3>22/07/2014</h3>
 
-    <p>This course is from 2006, which is really old. It suggested to install Web Developers Toolbar into Firefox</p>
+    <p>This course is from 2006, which is really old. It suggested to install Web Developers Toolbar into Firefox, that I didn't.</p>
 
     <p>Well, I installed the "Web Developer Tools" after Firebug. This tools is the native Firefox tool, which is in the same fashion as Firebug. I can't see any advantage of using it instead of Firebug...</p>
 
@@ -31,13 +31,23 @@
     	<li>Time Doctor Pro</li>
     	<li>VLC Player</li>
     	<li>GitHub for Windows</li>
+            <li>Windows Live 2011 (auto updated)</li>
+            <li>CPUID (but found that this one using DDR2 PC2-6400(400 MHZ) RAM, this is Intel Core2 Duo CPU T5870@2.00GHz, 1GB, 32-bit OS, that constantly short of RAM &. run into speed bumber. $28 to add an extra GB RAM from RAMCity.)</li>
+            <li>Brother CW990 All-in-one Printer</li>
+            <li>Windows Power Shell 2.0</li>
+            <li>Microsoft Silverlight</li>
+            <li>Windows Updates for Vista, including SP2, .Net 4.5.1</li>
+            <li>HP Webcam Driver, HP Quick Launch Buttons, IDT Audio etc</li>
+            <li>The Ethernet driver is not specifically loaded, and it was initially connected to home using WiFi. The outlook is that I need to reboot the laptop after WiFi disconnected or turned off. Otherwise it won't find the network connection. Or showing the Wired Connection or Card in any shape or form. </li>
     </ul>
 
     <p>From above, the GitHub Shell does not work. I also tried GitHub ATOM, which does not work as well. It recommended to be installed using 'cocco', which requires M$ PowerShell (that I didn't install) and Chrome(which is why I installed Chrome here, otherwise I won't). And, I didn't port all my Google settings back to this laptop, because I intend to use it as a study tool only, not a daily usage tool.</p>
 
     <p>BTW, I found out how to get updated files from GitHub on another laptop: git fetch upstream. It is to pull in changes not present in your local repository, without modifying your files. I will test it out on that Windows laptop after I added this and commited and pushed to GitHub.</p>
 
-    <h3>XHTML and CSS</h3>
+    <h2 id="latest"><a href="http://www.w3.org/Style/CSS/learning">Please go here to find out all latest CSS learning materials and standards</a></h2>
+
+    <h3>XHTML and CSS, from 2006</h3>
 
     <p>There are two types of elements: unreplaceable elements such as 'div', 'a', 'p'; and replaceable emelents such as 'img'; in HTML.</p>
 
@@ -101,11 +111,93 @@
     	<li>Float Layout: use this layout to divide the page into two column views, so that it looks better: <br /><br />
     	#content {float: left; padding: 0 20em 4em 3em; background: #FFA} <br />
     	#sidebar {float:right; width: 17em; margin: 0 0 4em -18em;} <br /><br />
-    	Add background into the first part is a good way to do troubleshooting, because it clearly marked the whole section and where its extention area is. Put '-18em' (which is less than padding of '20em' of first section) is a good way to 'guru' them together. So that when resizing the window, they won't be separated into two line/sections.
+    	Add background into the first part is a good way to do troubleshooting, because it clearly marked the whole section and where its extention area is. This declaration of background can be deleted after all things done. Or, you could put it as part of the design. Put '-18em' (which is less than padding of '20em' of first section) is a good way to 'guru' them together. So that when resizing the window, they won't be separated into two line/sections.
     	</li>
+    	<li>For page footer to work, we need to add the following: #footer {margin: 20px; clear:both;}. What 'clear' works, is to cancel out defined 'float', for either 'left', 'right', or 'both'; from margin-top. So after adding above rules for footer, it will goes down to whatever element it followed (such as #content and #sidebar as above). The 'margin' here is for margin-bottom only, because clear is to cancel out margin-top. <br /><br />
+
+    	To make a gap between page footer and sections on top of it, the 'margin-bottom:10px;" or wider, needs to be added into the rules of all sections above it; such as #content and #sidebar as above. <br /><br /></li>
+    	<li>Declaration of "overflow: auto;". If you add an div for container to cover both #content and #sidebar area, and add a "border: 2px solid red;" to it, you would notice that the right side border is always 2px or more hidden, unless you move the scrolling over to the right side. <br /><br />
+    	The issue is caused by extra space added when using various margins added to various elements (remember margin is outside of border, and padding is between border and content?). To solve this issue, declaration of overflow will be added, which will bring both left and right side of borders into the sightview, no matter how to resize the window. <br /><br />
+
+    	The example is: #container {background: #FCA; border: 2px solid red; overflow: auto;}. <br /><br /></li>
+    	<li>Create navigation bar usign ordered list. Assuming ol tag has 'id="navlinks"', try following: #navlinks li {display: inline; list-style: none;}. Display: inline; will show all items of li tags in one line. List-style: none; will get rid of numbers and dot in front of each and every items' innerHTML content. <br /><br />
+    	Display has two other values: block and none. Block will display its innerHTML content in a block box (using background colour to verify it. It is to generate a box for this element, but it won't change this element to be a 'block'). "Display: none;" means don't generate this box, that would make everything inside this box disappear on the web page. It is also used to hidden things in menus, or hide things from the page for printing, etc.</li>
     </ul>
 
+    <h3 id="Color">Colors and Backgrounds</h3>
 
+    <p>To have an underline below the title on the web page, it can be easily done using "border-bottom: 1px solid black;", which is just included for the title element's CSS properties, such as for "h3" in this case. </p>
+
+    <p>Five ways to define color in CSS: </p>
+        <ul>
+            <li>Keyword, such as "black"</li>
+            <li>Hex: #FFFFFF (White), #00000 (Black) </li>
+            <li>Short Hex: #C30 (only those pairs such as #CC3300 can be shorten to #C30.)  </li>
+            <li>RGB Decimal: rgb(255,255,255) (white), rgb(0,0,0) (black). #C30 can be converted to rgb(204, 51, 0), from hex to 10-based system for each digital of Hex. </li>
+            <li>RGB Percent: rgb(100%, 100%, 100%) (white), rgb(0%, 0%, 0%) (black). Again, #C30 is rgb(80%, 20%, 0%), because 204/255=0.8, 51/255=0.2, 0/255=0. Don't expect perfect fidelity: some browser would round it up anyway. </li>
+        </ul>
+    <p>BTW, Adobe Photoshop CS2 has a feature called "Color Picker", that would specify rgb or hex numbers, as well as CMYK style or other styles. In reality, everyone picks a color from a tool like Photoshop, and then write down the color specification given by the tool.</p>
+
+    <p id="css21"><a href="http://w3.org/TR/css21">CSS 2.1 Specification has 17 keywords for color:</a></p>
+        <ol>
+            <li id="maroon">maroon</li>
+            <li id="red">red</li>
+            <li id="orange">orange</li>
+            <li id="yellow">yellow</li>
+            <li id="olive">olive</li>
+            <li id="purple">purple</li>
+            <li id="fuchsia">fuchsia</li>
+            <li id="white">white</li>
+            <li id="lime">lime</li>
+            <li id="green">green</li>
+            <li id="navy">navy</li>
+            <li id="blue">blue</li>
+            <li id="aqua">aqua</li>
+            <li id="teal">teal</li>
+            <li id="black">black</li>
+            <li id="silver">silver</li>
+            <li id="gray">gray</li>
+        </ol>
+
+    <p>Background Colour can be defined for various sections, that would effectively cut the page into sections, or boxes (big or small). Then by manipulate the background colour, you can make various effects. Such as make the title background colour of sidebar as the same as main content colour, the sidebar could be visibly cut into more smaller boxes, although logically sidebar is still one section only.    </p>
+
+    <P>Look at <a href="http://www.aqee.net">http://www.vaikan.com/</a>, the M$ Metro flat 2D UI can be created by using clever CSS properties. The site's banner has .branddark {width:100%; background-color: #035553; border-top: 1px solid #035553;}. The border-top is invisible because it is the same colour as background-colour.  Although it has several .css files, others will specify that "background: transparent; border:0; margin: 0; padding: 0; vertical-align: baseline;"; and 'media="all"'. Then, you can put on next layer of boxes on top of this background, by specifying its background-colour, text colour, border and other things. By layered approach, you can easily define a perfect picture with various different colours at different sections, yet has a combined style and colour schemes. "div" tag is a perfection way to create these boxes, along with all other tags (even to 'a' tag, that you can add on various ID and class etc.); and "span" appears to be used for class reference instead. </P>
+
+    <p>Background Image syntax: "background-image: url(images/curl-gray.gif)". The relative url using the syntax as above (location relative to the style sheet at local folder, not to html file), and the image file can be in the format of .jpg, .gif, .png.   </p>
+
+    <p>Background image can be repeated, using "background: repeat;". It can also be "repeat-x", "repeat-y", or "no-repeat" with default/fixed position. By default it is repeated. Check out <a href="http://www.w3schools.com/css/css_background.asp">W3 School</a> site for more details, and try out their examples. BTW, there are javascript examples underneath as well, that is handy to use to add background information including images etc. It would make generating schemes using JavaScript much faster and easier. I now understand why W3 School web site will always be #1 when searching for HTML or CSS tags.  </p>
+
+    <p>Background position syntax is: "background-position: top center;"; or "50% 0;"; "right center;"; "0 50%" (left center, or left middle); It is honrizonial vertical (left top, which is position sensitive. The default value is 0 0). This one with "background: repeat;" together, is a good way to put watermark into the web page.    </p>
+
+    <p>Add above together, it can be combined like this: "#content {background: rgb(85%, 85%, 85%) url(images/curl-gray.gif) repeat 0 0;}". It looks much neat and less typing errors.   </p>
+
+    <h3>Typography</h3>
+
+    <p>Below are examples:</p>
+        <ul>
+            <li>Line-height, which is the times of font-size. Syntax: "p {line-height: 3;}". But you can also change it to '1px', '1em', etc. The usual is '1.2em' as common practice, but you can adjust it as you wish.  </li>
+            <li>"font-style: italic;", "font-weight: bold;", etc. Check out their details from W3 School site.   </li>
+            <li>h1, h2, h3, h4 {font-variant: small-caps;}   </li>
+            <li>"font-size: 200%;", or 2em. Or "smaller", (usually around 0.85em, but not precise); or "larger", (1.2 to 1.25em); or "small", "large", "medium", "extra large", ... Be careful when nesting CSS font-size using various CSS styles (like nested CSS lists).   </li>
+            <li>"font-family: Verdana, Helvetica, Arial, sans-serif, 'Courier New', monospace, cursive, fantasy;". Thanks to M$, Verdana is available to everyone on the web. Usual designs use font-family up to san-sefi. For font name with space in-between, it has to use '' or "" to include them. Courier New is 'modern' font, although used but not very widely. Monospace means every character has same space, as if it comes from a typewritter. So unless you are publish your code, it won't be used in most cases. Cursive and Fantasy is really rarely used, because each and every browser has different interreption of them, esp. the later one. For some poor browser that is not fancy enough, it could use simbles instead (because it is the most close to 'fantasy' style).   </li>
+            <li>Font shorthand: it must has size and family at least, and everything before them. "font: bold italic small-caps, smaller Arial, sans-serif;". With the present of the shorthand properties, anything before it would be resetted (so effectively cancelled out all other definitions regarding font before them in the same rule). But you could put them behind the above rule. This one needs to pay attention to.  </li>
+            <li>Text Justify. "text-align: right;" (default is 'left', there is another option is 'center'; and "justify" which is line up both left and right using space between the words, which was common used for printing industry).   </li>
+            <li>Vertical Align: "vertical-align: sub;" ('sub' is make it lower half line; 'super' makes it half line higher). It could also use '1em' make the height of the line 1em higher, or '-1em' to make it lower 1em lower . Default is 'baseline', which is in the same line as it was. It is useful to present something like 'TM' in top left corner after a brand name, if you use something like "h1 b {vertical-align:0.5em; font-size: 0.7em;} ".               </li>
+            <li>Text Transform: "text-transform: uppercase;"; or 'lowercase', 'capitalize', (Safari used to determine 's' in "It's" as a word, so it becomes "It'S". It needs to be tested to see if it is still does this. Most likely not.. ).    </li>
+            <li>Text Decoration: "test-decoration: none;"(default is 'none'). Also: "underline", 'overline' (above), 'line-through'(crossed through). BTW, they can be combined using space in-between. Attention for nested boxes: if you placed one such definition to an element, then all its nested child element would get the same deal and you can't cancel it out using 'none' or fake it using same colour as background colour. The definition has to be put on that smallest element that requires it.     </li>
+        </ul>
+
+    <h3>Margins and Borders to Create White Space and Separation</h3>
+
+    <p>This section is to teach the mechnic method of the design, not 'how to do a good design' itself. After watching these videos, I realize that it is really an very detailed and labour-intersive work to decorate every element of the page. This is to appeal to user's emotional side (or 'UX') using very detailed and artistic design by designer/painter/marketer, then get a front end coder to implement it.  </p>
+        <ul>
+            <li>Margin:  "margin-bottom: 1.75em;" (making space between text lines a little bit further); "margin: 0;"(remove margins. there is default margin from CSS point of view. But Browsers does have default settings of margins); "margin-right: 0.5em;"; "margin: 1em 2em 1em 2em;"(clock-wise: top right bottom left. Also this is shorthand). It could also use '33%' instead of '1em', means that it would take 33% of original space. If you got a table with limited width, 'auto' can also be used to create kind of 'center' effect, such as "#post-archive table {width: 80%; margin: 1em auto 0;}". BTW, it could be technically centered, but not 'visibily centered'. And, this does not work before IE5.5. It has to use "text-align: center;" and then adjust instead.  </li>
+            <li>"border-right: 0 none;" (there is no space between content and border right , and border-right side has a style of 'none', which means invisible and therefore no weight and other properties). Typically use "border-right: 0;" to cancel out the right separate from the last element of that line from right handsight. "border-bottom: 3px double black;" (replace '1px solid' with '3px double', now it has double underline).   </li>
+            <li>aa  </li>
+            <li>  </li>
+            <li>  </li>
+            <li>  </li>
+        </ul>
 
 
     <script type="text/javascript" src="CSSStudyNotes.js"></script>
