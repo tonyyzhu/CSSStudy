@@ -211,8 +211,90 @@
 
     <h3>Style for Print</h3>
 
-    <p>   </p>
+    <p>When printing directly from a browser for a webpage, it typically won't print the background as default (think about black background with white text as I am working on, it would cost a lot of ink even before half of the page printed). A typical setting in a webpage would be "<link rel="stylesheet" type="text/css" href="style/base.css" media="all" />". The 'media="all" ' part added, will make sure it not only works on screen, but also printing media. It could be changed to 'screen' only, or 'screen, print'. You can also separate media with different style sheet, such as change previous one to 'screen', then add "<link rel="stylesheet" type="text/css" href="style/pr001.css" media="print" />". Now if you do print preview, you will notice a huge difference in printing styles.  </p>
 
+    <p>To create a print preview CSS file, first change original link to base.css with media to 'tty' from 'screen', so that it won't be used (no one use tty for style sheet); then change the second link media from 'print' to 'screen', which effectively make your screen as your print preview; to facilate printing style sheet design. The design would be:<br /><br />
+            body {
+                font: 12pt "Times New Roman", TimesNR, Times, serif;            // you would see a very different font-family here due to paper/screen difference, also use 'pt' instead on paper (that 'should never used on a screen media');
+            }<br />
+
+            a img {
+                border: 0;              // turn the img border off;
+            }<br />
+
+            #content img.illus {
+                float: left;
+                margin: 1em 1em 1em 0;          // float to left of the page, with 1em margin from top, right, bottom, but not left;
+            }<br />
+
+            #navlink, #search, #post-archive, #tea-of-the-day img{
+                display: none;              // we don't need to print them on paper. They are convenient to be used on screen only;
+            }<br />                           // So we are going to hide these for printing: navigation bar, search box, calendar, tea-of-the-day image (but not text);<br /><br />
+
+            // Below are the improvements for printing on paper, which is a different media than 'screen', of course.<br />
+            #mashead {
+                border-bottom: 1px soid #000;           // Never rely on colour -- that special colour could be run-out on the printer they are using, or they only use mono printers, low resolution one, cheapest one, ... etc;
+            }<br />
+
+            h1, h2, h3, h4 {
+                font-family: Arial, Verdana, Helvetica, sans-serif;
+            }<br />
+
+            #today {
+                text-align: right;                      // This is the date of today element, prefer to be at right side of title of the article;
+                font-style: italic;                      // '-1em' to bring it up to the line of page title; also 0.25em to push border-bottom/underline nto too close (to look better);
+                margin: -1em 0 0.25em;
+            }<br />
+
+            #content {
+                margin: 0 5%;            // to make the main content margin of 5% both left and right, to make it looks better;
+            }<br />
+
+            #content h1 {
+                margin: -5%             // Title of main content section (not title of the page) back to original left 0 position (cancel out previous rule effect);
+            }<br />
+
+            #tea-of-the-day {
+                border: 3px double;             // double-lined box to engulf the section;
+                text-align: center;                // set the text in the middle;
+                padding: 0.5em;                 // inside border with half font-size space, to look better;
+                margin: 0 10%;                  // make the whole box 10% margin left and right, so standout from the rest of the main content (5% margin);
+            }<br />
+
+            #tea-of-the-day h3, #tea-of-the-day h4 {
+                margin: 0;                          // no margin so that to shrink the empty space, to make the box smaller;
+                display: inline;                    // instead of two lines of title, make it one line only;
+                font-size: 1em;                    // instead of h3 and h4 size, make it normal 1em size. So h3 and h4 now just a DOM tag now;
+            }<br />
+
+            #tea-of-the-day h3 {
+                border-right: 2px solid;        // add an separate between h3 and h4 elements;
+                margin-right: 1em;
+                padding-right: 1em;             // spacing of 1em left & right of the separator
+                color: gray;                            // also change h3 text colour to gray, to further separate it out of h4 content/title;
+            }<br />
+
+            #tea-of-the-day p {
+                margin: 0.5em 0 0;              // shrink top margin to half of default, cancel out left, right, and bottom margin, so that to make the box smaller and looks better;
+            }<br /><br />
+
+            // Footer changes;<br />
+            #footer {
+                border-top: 1px solid;          // have a separation line above the footer, to make it look better;
+                margin-top: 2em;
+                padding-top: 0.25em;
+                font-style: italic;
+                font-size: smaller;
+                text-align: right;              // smaller footer align right of the page with italic font, with margin and padding for spacing concerned of separator line;
+                color: gray;
+            }<br />
+
+            #footer p {
+                margin: 0;
+            }<br />
+    </p>
+
+    <p>Now save the CSS file, and change original CSS style media: 'screen' changes to 'print', and 'tty' changes to 'screen'. All finished and done!  </p>
 
 
 
