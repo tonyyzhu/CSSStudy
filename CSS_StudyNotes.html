@@ -187,17 +187,33 @@
             <li>Text Decoration: "test-decoration: none;"(default is 'none'). Also: "underline", 'overline' (above), 'line-through'(crossed through). BTW, they can be combined using space in-between. Attention for nested boxes: if you placed one such definition to an element, then all its nested child element would get the same deal and you can't cancel it out using 'none' or fake it using same colour as background colour. The definition has to be put on that smallest element that requires it.     </li>
         </ul>
 
-    <h3>Margins and Borders to Create White Space and Separation</h3>
+    <h3>Margins and Borders to Create White Space and Separation: it is all about those tiny details, that Steve Jobs are really concerned about.</h3>
 
     <p>This section is to teach the mechnic method of the design, not 'how to do a good design' itself. After watching these videos, I realize that it is really an very detailed and labour-intersive work to decorate every element of the page. This is to appeal to user's emotional side (or 'UX') using very detailed and artistic design by designer/painter/marketer, then get a front end coder to implement it.  </p>
         <ul>
             <li>Margin:  "margin-bottom: 1.75em;" (making space between text lines a little bit further); "margin: 0;"(remove margins. there is default margin from CSS point of view. But Browsers does have default settings of margins); "margin-right: 0.5em;"; "margin: 1em 2em 1em 2em;"(clock-wise: top right bottom left. Also this is shorthand). It could also use '33%' instead of '1em', means that it would take 33% of original space. If you got a table with limited width, 'auto' can also be used to create kind of 'center' effect, such as "#post-archive table {width: 80%; margin: 1em auto 0;}". BTW, it could be technically centered, but not 'visibily centered'. And, this does not work before IE5.5. It has to use "text-align: center;" and then adjust instead.  </li>
             <li>"border-right: 0 none;" (there is no space between content and border right , and border-right side has a style of 'none', which means invisible and therefore no weight and other properties). Typically use "border-right: 0;" to cancel out the right separate from the last element of that line from right handsight. "border-bottom: 3px double black;" (replace '1px solid' with '3px double', now it has double underline).   </li>
-            <li>aa  </li>
-            <li>  </li>
-            <li>  </li>
-            <li>  </li>
+            <li>How to put a date at the end of the navigation bar (far right), when all those content of the bar is all located at left side of the space? And, no separator between the navigator items and the date. The best way to do it, is to create a new line just for that date which is float to right. The set margin top to '0' (no space between new line and the bar), then set it to '-1em' to see if it could fit in. Then adjust it promptly to make it inline, such as "#today {margin-top: -1.66em;}" to make it perfect. The same technick can be used on margin-left or margin-right, as long as the visual effect is right on the web page.  </li>
+            <li>To set things absolutely right across all browsers, use "body {margin: 0; padding: 0;}" to cancel out all other specific settings.  </li>
+            <li>Margin Collapsing. By default, paragraph has margin-bottom of '1em' and no padding. Padding of '1em' would typically add '1em' at top and '1em' at bottom, which is no desirable in most cases. To find out, add "border-bottom: 1px dotted red" to space visible, as troubleshooting tool; then get rid of it after all done. On the other hand, same effect could be an issue, when background colour of header or top title has an 1px space between top of the background colour and top of the page. You can set border-top of '1px' to see if it fits into that space or not. The solution is to add 'padding-top: 1px;' or '1em' to get rid of it, depends on how wide the space is.    </li>
+            <li>The other thing is the title of sidebar, that could be 'h3' or 1.25em high. The margin bottom by default could be same space as 1.25em (as the size of the font of 'h3'). That space could be just a little wider than desire, and put sidebar content not in line with content right of it. To fix it, add 'margin-top' or 'margin-bottom' of '0.8em' (0.8 x 1.25 = 1) to make the space smaller, and the rest of the sidebar content to be in line with the content of major section.   </li>
         </ul>
+
+    <h3>Tables, such as calendar</h3>
+
+    <p>Below are the code, to make the table smaller and centered, and then make the table title (month) back to normal font-size, and looks better visibly. "#post-archive table{font-size: smaller; margin: 0 auto;} #post-archive caption {font-size: larger; font-weight: bold; margin: 1em auto 0;}".  </p>
+
+    <p>Cell Styles. "#post-archive td {border: 1px solid #787A6B; empty-cells: hide; padding: 0;} ". BTW, padding of '5px' would put dates middle of the cell (but, "text-align: center;" would be much better), space between table cells is not 'margin'(cells does not have 'margin' property), but add 'cellspacing' to table tag "<table cellspacing="2">" (because IE5.5 or older does not support 'margin' in table cells). To make the table width wider to be better viewed and occupy most of that box space, you could add "width: 14%"(14% wider). So the final statement of this calendar CSS is: "#post-archive td {border: 1px soid #787A6B; padding: 0; background: #5B5D4E; color: #222; text-align: center; width: 14%;}".   </p>
+
+    <p>What if we want to highlight 'Thu' because of special events once per week? "#post-archive td.thu {background: #686397; border: 1px solid #686397;} #post-archive th.thu {color: #686397;}". First statement refer only to td.thu so that it does not have title of 'Thu' included. The second one set table title of 'Thu' colour as the same as the background colour of the dates, so that it is consistant in style.  </p>
+
+    <p>Links inside the table cells. "#post-archive a:hover {background: #ABC240;} #post-archive a {display: block;}", first one means when you hover a mouse over a linked cell, it would change its background colour to make it standout; the second will change that linked cell display style from default 'inline' style to 'block' style, which means the background colour change now will file the whole cell box instead of just the space of the letter(s).    </p>
+
+    <h3>Style for Print</h3>
+
+    <p>   </p>
+
+
 
 
     <script type="text/javascript" src="CSSStudyNotes.js"></script>
