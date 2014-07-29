@@ -9,7 +9,7 @@
 <body>
     <h1>Tools for CSS</h1>
 
-    <h3>22/07/2014</h3>
+    <h3>22/07/2014 ~ 29/07/2014</h3>
 
     <p>This course is from 2006, which is really old. It suggested to install Web Developers Toolbar into Firefox, that I didn't.</p>
 
@@ -403,7 +403,7 @@
             }<br />
         </li>
     </ol>
-    <ol><span id="examples">Step 6: set up the subtitle Section of the content section area global settings, as well as inserted image position.</span><br /><br />
+    <ol><span id="examples">Step 6: set up the sidebar area global settings, to make it parallel to the main content section on the same lines.</span><br /><br />
         <li>// There are several parts here. Add a comment to CSS file is a good way to document the sections to make it more meaningful. But I didn't put them into this note before. Now is a good time to do so. Also it has a hack again, to make '-18em' correspending to '20em' padding of content area. It is a really good way to make those two boxes parallel. But I am sure that now there would be much better way to make that happen. <br />
             /* ------------- sidebar styles */<br />
 
@@ -425,10 +425,103 @@
         </li>
         <li>// This is to make the width of the search input box lesser, so that the 'Search' button can appear next to it. The core here that I didn't make it right the first time, is the DOM navigation. It should be id plus tag plus class. <br />
             #sidebar form .text {
-                width: 9em;
+                width: 9em;         // I changed it to '8em' to make the input box in line with the button on latest Chrome browser;
             }<br />
         </li>
     </ol>
+    <ol><span id="examples">Step 7: Fine Tuning the Side Bar area.</span><br /><br />
+        <li>// give two sidebar boxes background colour to clearly mark them out, with padding for spacing. BTW, this padding will force other side bar font's decorations to be in line with it vertically. Also, pay attention to the 'margin-top', that separate two backgrounded boxes apart. Again, like painting, you got to pay attentions to the finest details here and there.<br />
+            #sidebar div {
+                background: #3A3C2D; color: #FFF;
+                padding: 0 1em 1em;
+                margin-top: 0.75em;
+            }<br /><br />
+        </li>
+        <li>// This one needs calculations here. Increase 'font-size' to '1.25em', makes 'h3' just be a tag. 'padding' makes the area associated with 'h3 title' bigger,  to clearly separate it inside the box, to make it unique as title here. Also, '-0.8em' x '1.25em' is around '1em', so that to make the backgrounded title area to cover the whole width of their own boxes, yet to keep the font inline vertically with their own content inside the box/area below, as '1em' padding in previous rules. Also, turn the title to be 'lowercase', to separate/compare them against the titles of the main content area, which is honizonally in line and easy to read/compare. <br />
+            #sidebar div h3 {
+                font-size: 1.25em;
+                margin: 0 -0.8em; padding: 0.4em 0.8em;
+                text-transform: lowercase;
+            }<br />
+        </li>
+    </ol>
+    <ol><span id="examples">Step 8: Fine Tuning the middle box of Side Bar area.</span><br /><br />
+        <li>// Fine tune the subtitle of the middle box in the side bar area: add a separation line between subtitle and content of that area (same as content area), and then spacing around the line for spacing. Also, change font-weight to 'normal', so that 'h4' is just a tag now. Interesting - would designer leave any font as defualt of those titles at all? It appears that it is most likely not possible in their eyes. <br />
+            #tea-of-the-day h4 {
+                margin: 0 0 0.5em; padding: 0.5em 0;
+                border-bottom: 1px solid #FFF;
+                font-weight: normal;
+            }<br /><br />
+        </li>
+        <li>// This one is interesting: in original HTML document, there is no 'first-line' defined as ID or Class. But, it uses 'p:first-line' from DOM, to make the first line of the content of that middle side bar box area to become 'italic', so that it presents itself (assuming that it would be a name of the tea, for that 'tea-of-the-day'?) differently from the rest of the content there. Hm, really nice idea, and I would miss it if I didn't hear the teacher talking about it here. But, someone like a woman could pay a lot of attention to those things (and looking for cheaper price by default, actually). <br />
+            #tea-of-the-day p:first-line {
+                font-style: italic;
+            }<br /><br />
+        </li>
+        <li>// Again, this settled the image inside this middle box nicely, by change display to be 'block' - turn it into a small box on top of the middle box (as a separated layout on top of it), and margin of top '2em' but bottom of '0em' to separate it form the content but not adding extra spacing to next big box. Also the 'auto' will set itself into the middle of left & right. Very nice layout by just a few lines of configuration.<br />
+            #tea-of-the-day img {
+                display: block;
+                margin: 2em auto 0;
+            }<br />
+        </li>
+    </ol>
+    <ol><span id="examples">Step 9: Fine Tuning the Lower Box of Side Bar area, which is the calendar in table format. Well, I never thought of how tenidous and time consuming it is to make a web page look pretty... But I know it now...</span><br /><br />
+        <li>// This is an interesting one: the goal is to make the subtitle looks bigger than table cell fonts/calendar dates, to make it a 'title' and stand out. So the first step, is to make everything a smaller font in size. And 'auto' on left and right.<br />
+            #post-archive table {
+                margin: 0 auto;
+                font-size: smaller;
+            }<br /><br />
+        </li>
+        <li>// This is to make the subtitle area larger (well, after 'smaller' &. then 'larger', it backs to normal '1em' size. But comparing with cell font-size, it is larger, so that it stands out and achieved the goal set at the beginning). Also set '1em' margin at the top, 'auto' as usual of this box, and 'bold' to make it look pretty. However, there is no separation line configured here, becuase the cell area is to become another lighter-coloured box on top of the current layer. So there is no need for that separation line here. <br />
+            #post-archive caption {
+                margin: 1em auto 0;
+                font-size: larger;
+                font-weight: bold;
+            }<br /><br />
+        </li>
+        <li>// This is to set each and every table cell (including empty dates, or dates that does not belong to current month) as a small box, with border, background colour lighter, and colour of the cell text a little darker than default 'body' text colour ('#333' comparing to '#222'); and the date content to be in the middle of the cell box area, to look pretter. But, those linked date still has different colour, that makes them invisible, and the target of next configuration.<br />
+            #post-archive td {
+                padding: 0;
+                border: 1px solid #787A6B;
+                background: #5B5D4E; color: #222;
+                text-align: center;
+            }<br /><br />
+        </li>
+        <li>// This is to configure the linked date cell, turning them into boxes ('display: block'), text bold, colour to be 'white' (clearly standing out from grey area). Also, change their background colour to 'green' when the mouse 'hover-over' the linked date, even the box is so small that people like me wouldn't notice it. But, someone like Steve Jobs will... :-)  <br />
+            #post-archive table a {
+                display: block;
+                font-weight: bold;
+                color: #FFF;
+            }<br />
+
+            #post-archive table a:hover {
+                background: #ABD240;
+            }<br />
+        </li>
+    </ol>
+    <ol><span id="examples">Step 10: Fine Tuning the Footer area, which is the last one (but important one - your signature as web designer or developer, or your company name here!).</span><br /><br />
+        <li>// Again, comment in CSS file to separate sections to make them meaningful. Then there are other tools like CSS minifing tool to make it smaller and easier to transfer from web server to the client browser. However, this copy will be the documentation copy for reference in the future, as well as maintainess purpose. First of all, set 'clear: both' here to make sure the footer is the last and balanced section of the page, instead of it under only one box but not under both left and right column of boxes. Also, the difference is open to individual user browser's defult setting if you didn't set it. (my latest Chrome present it differently to teacher's IE6 for this same page when locating the footer). Give it a background colour same as top of the page area, to make it looks much better and consistant. <br />
+            /* ------------- footer styles */<br />
+
+            #footer {
+                clear: both;
+                padding: 1.5em 3em;
+                background: #A0C63A;
+            }<br /><br />
+        </li>
+        <li>// this is to adjust spacing of the background, that before it the green background has more under the text line than beyond the text line. Now it is even. <br />
+            #footer p {
+                margin: 0;
+            }<br /><br />
+        </li>
+        <li>// this is to change the 'a href' section of the footer text, to make them the same font colour with underline for the company name (but still clearly a web link to the vendor's company web pages). BTW, he didn't do the 'text-aligh: right;' here, just leave it at the left side of the bottom of the page. Actually, I like it this way to make it stand out (attract attention from users under the green background). Put it to right side under calendar will certainly make me miss it, or dismiss it just another pretty decoration, rather than asking user to pay attention to vendor's web site, to attract more business from their users. <br />
+            #footer a {
+                color: #333;
+                text-decoration: underline;
+            }<br /><br />
+        </li>
+    </ol>
+    <h3>That's all forks!  A very tendious process, that makes me lose interests on the web design part, and further understanding into the 'UX' part of the business. But, I don't like the hand-drawing a picture. Maybe my daughter would like it. However, I can understand it and I can train myself on this front, if necessary. </h3>
 
 
      */
