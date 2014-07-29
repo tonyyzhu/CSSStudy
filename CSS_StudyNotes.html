@@ -343,7 +343,90 @@
         <li>#navlinks {
                     margin: 0; padding: 0.5em 3em;
                     background: #686397; color: #FFF;
-                }
+                }<br /><br />
+        </li>
+        <li>// By using 'inline' for 'display', it turns a vertical ordered list into one line of navigation list instead. Also I missed to turn 'gont-weight' to 'bold'. 'border-right' adds the separator between navigation items, plus 'margin-right' and 'padding-right' adjust the spacing between fonts and the separator.<br />
+            #navlinks li {
+                display: inline;
+                margin-right: 0.5em; padding-right: 0.75em;
+                border-right: 1px solid #99C;
+                font-weight: bold;
+            }<br /><br />
+        </li>
+        <li>// get rid of the last separator at the last of navigation item. <br />
+            #navlinks li.last {border-right: 0;}<br /><br />
+        </li>
+        <li>// Turn off the special weblinked item coloring, to make it consistant with other navigator items. <br />
+            #navlinks a {color: #D4EC84;}<br /><br />
+        </li>
+        <li>// Hacking function (which is not desired CSS usage, but works perfectly here): set 'margin-top' as '-1.66em', to make it get into the previous line of texts, with usual color, spacing, font-weight(as bold to be consistant to the rest of line for text). 'text-align' to right to turn it as the last item of the navigation line. <br />
+            #today {
+                margin-top: -1.66em; padding: 0 2em 0 0;
+                color: #FFF;
+                font-weight: bold;
+                text-align: right;
+                line-height: 1;
+            }<br />
+            // The difference between 'float' and 'text-align': 'float' moves the boxes and a batch of objects; 'text-align' moves text inside the box and usually one word at each time.<br />
+        </li>
+    </ol>
+    <ol><span id="examples">Step 4: set up the Content Section of the web page. This is the major or 'structure' part of the web page, that people typically use grid to design the layout of the page, lining up every corner and box models. It is layered boxes: big box contains a number of small boxes, that each and every one of them has their own small secrets. Liking painting on the paper, you got to take care of every small nitty-gritty detail, even font-size of 12px as average to 13px as average (due to mobile screen and/or larger &. higher resolution monitors). Check out those discussions on typical grid tempates (current trend is 968 x whatever instead of old 960 x 480 grid as design basis). </span><br /><br />
+        <li>// Another hacking example: that now people saying that it is better to put all those hacking configurations into a separate CSS file, to remind yourself what was not 'normal', and why you have to do it this way. It 'could' benefit yourself if you have to maintain this web page in the future (to make reading and understanding easier). <br />
+           #content {
+                float: left;
+                padding: 0 20em 4em 3em;
+            }<br /><br />
+        </li>
+        <li>// Decorate the H1 header title of the content section.  '-2em' makes the title box closer to the navigation bar, that has the date lifted up '-1.66em' before. Otherwise it looks too far away or 'too loose'. Pay attention to the background colour of white, that set the box visible yet not too much when comparing with the content background colour(Actually it is 'body' background colour). The font-size definition make 'h1' a pure HTML tag now, as well as colour definition for 'h1 b' emphasis.<br />
+            #content h1 {
+                margin: 0 33% 1.25em -2em; padding: 0.5em 2em;
+                background: #FFF; color: #686397;
+                font-size: 1.5em;
+            }<br />
+            #content h1 b {
+                color: #B0D742;
+            }<br />
+        </li>
+    </ol>
+    <ol><span id="examples">Step 5: set up the subtitle Section of the content section area global settings, as well as inserted image position.</span><br /><br />
+        <li>// Change font-size to be consistant, and add a separation line, with spacing adjustment around that line. This successfully separate the title section to the main page content section, yet 'subtle' way. <br />
+            #content h2 {
+                margin: 0.5em 0; padding-bottom: 0.25em;
+                border-bottom: 1px solid #B0D742;
+                font-size: 1.5em;
+            }<br /><br />
+        </li>
+        <li>// Float the box of image to the left side of the page, with '1em' spacing around it except left side (that has no content). <br />
+            #content img.illus {
+                float: left;
+                margin: 1em 1em 1em 0;
+            }<br />
+        </li>
+    </ol>
+    <ol><span id="examples">Step 6: set up the subtitle Section of the content section area global settings, as well as inserted image position.</span><br /><br />
+        <li>// There are several parts here. Add a comment to CSS file is a good way to document the sections to make it more meaningful. But I didn't put them into this note before. Now is a good time to do so. Also it has a hack again, to make '-18em' correspending to '20em' padding of content area. It is a really good way to make those two boxes parallel. But I am sure that now there would be much better way to make that happen. <br />
+            /* ------------- sidebar styles */<br />
+
+            #sidebar {
+                float: left;
+                width: 17em;
+                margin: 0 0 4em -18em;
+            }<br /><br />
+        </li>
+        <li>// to add background colour to the form title, yet allow it to keep its font-size for 'h3'.<br />
+            #sidebar form, #sidebar div h3 {
+                background: #9B96CA;
+            }<br /><br />
+        </li>
+        <li>// to give form (which is the search input box and the calendar) some more spaces around them, to make them looking better.<br />
+            #sidebar form {
+                margin: 0; padding: 0.8em;
+            }<br /><br />
+        </li>
+        <li>// This is to make the width of the search input box lesser, so that the 'Search' button can appear next to it. The core here that I didn't make it right the first time, is the DOM navigation. It should be id plus tag plus class. <br />
+            #sidebar form .text {
+                width: 9em;
+            }<br />
         </li>
     </ol>
 
